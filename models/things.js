@@ -7,31 +7,23 @@ const Schema = mongoose.Schema
 
 // Set up Schema
 
-const activitySchema = new Schema({
+const thingSchema= new mongoose.Schema({
   weather: {type: String,
   required: true
 },
-  activity: {
+  name: {
     type: String,
     required: true
   },
   description: String,
   img: String,
-  price: {
-    type: Number,
-    min: [0, 'Price can\'t be less than 0.']
-  },
-  rating: {
+  likes: {
     type: Number
   }
 })
-
-
 // Set up Model
 
-const Activity = mongoose.model('Activity', activitySchema)
-
+const Thing = mongoose.model('Things', thingSchema);
 
 // Module Exports
-
-module.exports = Activity
+module.exports= Thing;

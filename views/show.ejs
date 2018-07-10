@@ -1,1 +1,30 @@
+<!<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Ubuntu" rel="stylesheet">
+        <title></title>
+    </head>
+    <body>
+      <a href="/things">Home</a>
+        <h1><%=thing.name; %> </h1>
+        <div id="container">
+         <img src="<%=thing.img; %>" class="border" width="222" height="226"><br></br>
+         <h2><%=thing.description; %></h2>
+         Likes:<p><%=thing.likes; %></p>
 
+            Weather:<p><%=thing.weather; %></p>
+            <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
+              <input type="submit" value="Like"/>
+            </form>
+
+        <div>
+        <nav>
+          <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
+              <input type="submit" id="delete" value="DELETE"/>
+              </form>
+            <a href="/things/<%=thing.id%>/edit">EDIT</a>
+        </nav>
+    </body>
+</html>
