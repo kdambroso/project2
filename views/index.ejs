@@ -16,22 +16,22 @@
         <img src="" alt="logo">
         <h1>Weather To Do</h1>
       </div>
-      <!-- navigation -->
+
       <div class="header-nav">
         <ul>
 
           <li>
               <a href="/things/new">Add Content</a>
           </li>
-          <!-- add your link to create a user here -->
+          <li>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Logout"/>
+            </form>
+          </li>
+
           <li><a href="/users/new">Register</a></li>
-
-          <!-- add your link to the log in page here -->
           <li><a href="/sessions/new">Log In</a></li>
-
-          <!-- Form Here -->
-
-
+          
         </ul>
       </div>
     </div>

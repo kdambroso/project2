@@ -3,8 +3,10 @@
 const express = require('express')
 const router = express.Router();
 
+
 // Models
 const Thing = require('../models/things.js')
+
 
 // seed data
 router.get('/seed', (req, res) => {
@@ -35,7 +37,6 @@ router.get('/seed', (req, res) => {
       }
   )
 })
-
 
 
 

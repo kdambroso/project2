@@ -4,6 +4,8 @@ const app = express();
 const PORT= process.env.PORT || 3000;
 const mongoose = require('mongoose')
 const methodOverride= require('method-override')
+const session = require('express-session');
+const bcryptjs = require('bcryptjs');
 const mongoUri =  process.env.MONGODB_URI || 'mongodb://localhost:27017/grocery_app_dev';
 
 // MIDDLEWARE
@@ -19,14 +21,24 @@ app.use(methodOverride('_method'));
 
 
 
+
+
+
 //CONTROLLERS
 const thingsController = require('./controllers/things.js');
 app.use('/things', thingsController);
+//users
+const userController = require('./controllers/users.js')
+app.use('/users', userController);
+//sessions
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController);
 
+// Reroute to `things`
+app.get('/', (req, res) => {
+  res.redirect('/things')
+})
 
-
-
-// SEED ROUTE
 
 
 // CONNECTIONS
