@@ -34,7 +34,7 @@ app.listen(PORT, ()=>{
 
   console.log('this works');
 })
-mongoose.connect('mongodb://localhost:27017/basiccrud');
+
 mongoose.connect(mongoUri, { useNewUrlParser: true });
 mongoose.connection.on('open',()=>{
   console.log('connected to mongoose!!!!!');
