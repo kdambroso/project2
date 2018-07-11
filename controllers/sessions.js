@@ -7,8 +7,7 @@ router.get('/new', (req, res)=>{
   res.render('sessions/new.ejs')
 })
 
-router.delete('/things/sessions', (req, res)=>{
-  console.log('hello');
+router.delete('/things/sessions/', (req, res)=>{
   req.session.destroy(()=>{
     res.redirect('/things')
   })
@@ -16,7 +15,6 @@ router.delete('/things/sessions', (req, res)=>{
 
 router.post('/', (req,res)=>{
   User.findOne({username: req.body.username}, (err, foundUser)=>{
-    console.log(foundUser);
     if(bcryptjs.compareSync(req.body.password, foundUser.password)){
       req.session.currentUser = foundUser;
       res.redirect('/');
