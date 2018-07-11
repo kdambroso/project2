@@ -17,19 +17,22 @@ router.get('/seed', (req, res) => {
         name: 'Ride A Bike',
         description: 'Feel the wind in your hair',
         img: 'https://image.freepik.com/free-vector/kid-riding-a-bike_23-2147513580.jpg',
-        likes: 3
+        likes: 3,
+        createdBy: 'Admin'
       }, {
         weather: 'Rainy',
         name: 'Play a Board Game',
         description: 'Fun for the whole family',
         img: 'http://iloveboardgames.com/wp-content/uploads/2013/05/familyplayingcartoon.jpg',
-        likes: 5
+        likes: 5,
+        createdBy: 'Admin'
       }, {
         weather: 'Windy',
         name: 'Fly a Kite',
         description: 'capture the power of the wind',
         img: 'https://cdn5.vectorstock.com/i/1000x1000/20/44/cartoon-boy-playing-kite-vector-1542044.jpg',
-        likes: 3
+        likes: 3,
+        createdBy: 'Admin'
       }
     ],
     (err, data)=>{
@@ -97,14 +100,16 @@ router.get('/new', (req, res)=>{
 router.get('/', (req, res)=>{
     Thing.find({}, (error, allThings)=>{
         res.render('index.ejs', {
-            things: allThings
+            things: allThings,
+            currentUser:req.session.currentUser
         });
     });
 });
 router.get('/:id', (req, res)=>{
     Thing.findById(req.params.id, (err, foundThing)=>{
         res.render('show.ejs', {
-          thing: foundThing
+          thing: foundThing,
+          currentUser:req.session.currentUser
         });
     });
 });
@@ -112,7 +117,8 @@ router.get('/:id', (req, res)=>{
 
 //create route
 router.post('/', (req, res)=>{
-        Thing.create(req.body, (error, createThing)=>{
+    req.body.createdBy= req.session.currentUser.username
+      Thing.create(req.body, (error, createThing)=>{
       res.redirect('things')
     })
 });

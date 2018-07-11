@@ -20,7 +20,8 @@ const thingSchema= new mongoose.Schema({
   likes: {
     type: Number,
     default: 0
-  }
+  },
+  createdBy: String
 })
 // Set up Model
 

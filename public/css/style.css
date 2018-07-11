@@ -92,7 +92,6 @@ body {
   border-radius: 10px;
   background-color: 	#0C8CCD;
   height: 237px;
-  overflow: scroll;
 }
 .card h5 {
   display: block;
@@ -126,4 +125,40 @@ body {
 }
 .things-body {
   margin:0 auto;
+}
+/* ===== SHOW * ===== */
+.show{
+  background-color: #ECFBFE;
+}
+.big {
+   margin:auto;
+   width:90%;
+   text-align: center;
+   padding: .3em;
+   margin: 1em;
+}
+.big-img{
+  max-width: 90%;
+  max-height: 25vmax;
+  border-radius: 50px;
+}
+.like {
+  background-color: #96DADD;
+}
+#delete {
+  background-color: #EEA2CC;
+  margin-left: 1em;
+}
+#edit  {
+  color: #f6ab32;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s ease-in;
+  font-size: 1em;
+  margin:3px 0 0 10px;
+}
+.admin-actions {
+  margin-auto;
+  display:flex;
+  justify-content: center;
 }
