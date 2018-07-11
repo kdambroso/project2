@@ -7,9 +7,9 @@ router.get('/new', (req, res)=>{
   res.render('sessions/new.ejs')
 })
 
-router.delete('/', (req, res)=>{
+router.delete('/things', (req, res)=>{
   req.session.destroy(()=>{
-    res.redirect('/')
+    res.redirect('/things')
   })
 })
 

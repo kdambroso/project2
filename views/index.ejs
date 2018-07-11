@@ -6,55 +6,64 @@
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <!-- CSS -->
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/img/a-sun-cartoon-with-a-long-ray-md.png" type="image/x-icon"/>
   </head>
   <body>
     <!-- ====== TOP HEADER BAR ====== -->
     <div class="header">
       <!-- title -->
       <div class="header-title">
-        <img src="" alt="logo">
+        <img src="/img/a-sun-cartoon-with-a-long-ray-md.png" alt="logo">
         <h1>Weather To Do</h1>
       </div>
 
       <div class="header-nav">
         <ul>
-
+<% if(things.currentUser) { %>
           <li>
               <a href="/things/new">Add Content</a>
           </li>
           <li>
-            <form action="/sessions?_method=DELETE" method="POST">
+            <form action="/things/sessions?_method=DELETE" method="POST">
                 <input type="submit" value="Logout"/>
             </form>
           </li>
-
+<% } else { %>
           <li><a href="/users/new">Register</a></li>
-          <li><a href="/sessions/new">Log In</a></li>
-          
+          <li><a href="/things/sessions/new">Log In</a></li>
+<% } %>
         </ul>
       </div>
     </div>
-    <!-- ===== MAIN SPLASH PAGE CONTENT ===== -->
+    <!-- ===== MAIN PAGE CONTENT ===== -->
     <div class="main">
       <!-- image -->
-      <img src="" alt="bored cartoon"/>
+      <img src="/img/cg5245027e28a21.jpg" alt="bored cartoon"/>
       <!-- about -->
       <div class="main-abt">
         <h1>Bored? Have some chores to avoid? We can help, rain or shine!</h1>
         "Wherever you go, no matter what the weather, always bring your own sunshine." --Anthony J D'Angelo
-      </div>
+      </div></br>
+      <div class="things">
           <% for(let i = 0; i < things.length; i++){ %>
-            <div class="column">
+            <div class="card">
               <div class="things">
-                <p><%=things[i].name; %></p>
-                <div class=prodImage>
-                  <a href="/things/<%=things[i].id; %>"><img src="<%=things[i].img; %>" class="border" width="82" height="86"</a>
+                  <h4><%=things[i].weather; %></h4><br></br>
+                <div class="thingImage img-rounded">
+                  <a href="/things/<%=things[i].id; %>">
+                    <img src="<%=things[i].img; %>" class="border" alt="image of <%= things.name %>"></a><br></br>
                 </div>
-                <p><%=things[i].likes; %></p><br></br>
+                <div class="things-body">
+                <h5><%=things[i].name; %></h5>
+                <span class="heart"> <img src= "/img/71zVmQOKF0L._SX425_.png" height= "12px" width="12px"> <%=things[i].likes; %></span>
+              </div>
               </div>
             </div>
             <% } %>
           </div>
+        </div>
     </body>
 </html>

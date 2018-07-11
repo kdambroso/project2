@@ -18,7 +18,8 @@ const thingSchema= new mongoose.Schema({
   description: String,
   img: String,
   likes: {
-    type: Number
+    type: Number,
+    default: 0
   }
 })
 // Set up Model

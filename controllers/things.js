@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Models
 const Thing = require('../models/things.js')
-
+const User = require('../models/users.js');
 
 // seed data
 router.get('/seed', (req, res) => {
@@ -38,17 +38,31 @@ router.get('/seed', (req, res) => {
   )
 })
 
+// Get Index
+router.get('/things', (req, res) => {
+  User.find({}, (err, foundUsers) => {
+    if(req.session.currentUser){
+    res.render('index.ejs', {
+      users: foundUsers
+        });
+    } else {
+        res.redirect('/things');
+    }
 
+  });
+});
 
-
-//delete route
+//Delete Route
 router.delete('/:id', (req, res)=>{
   Thing.findByIdAndRemove(req.params.id, (error, data)=>{
     res.redirect('/things');
   })
 })
 
-//edit route
+
+
+
+//Edit Route
 router.get('/:id/edit',(req, res)=>{
   Thing.findById(req.params.id, (err, foundThing)=>{
       res.render('edit.ejs',
@@ -76,7 +90,7 @@ router.put('/:id/likes', (req, res)=>{
 })
 
 
-//new route
+//New oute
 router.get('/new', (req, res)=>{
   res.render('new.ejs');
 });

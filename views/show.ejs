@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
         <title></title>
     </head>
     <body>
@@ -12,20 +13,20 @@
         <div id="container">
          <img src="<%=thing.img; %>" class="border" width="222" height="226"><br></br>
          <h2><%=thing.description; %></h2>
-         Likes:<p><%=thing.likes; %></p>
+         <span class="heart"> <img src= "/img/71zVmQOKF0L._SX425_.png" height= "12px" width="12px"> <%=thing.likes; %></span></br>
+         <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
+           <input type="submit" value="Like"/>
+         </form>
+            Weather: <%=thing.weather; %>
 
-            Weather:<p><%=thing.weather; %></p>
-            <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
-              <input type="submit" value="Like"/>
-            </form>
             <li>
-                          <a href="/messages">add a message</a>
-                      </li>
+              <a href="/messages">add a message</a>
+            </li>
         <div>
         <nav>
-          <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
+            <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
               <input type="submit" id="delete" value="DELETE"/>
-              </form>
+            </form>
             <a href="/things/<%=thing.id%>/edit">EDIT</a>
         </nav>
     </body>

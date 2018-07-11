@@ -9,16 +9,19 @@ const bcryptjs = require('bcryptjs');
 const mongoUri =  process.env.MONGODB_URI || 'mongodb://localhost:27017/grocery_app_dev';
 
 // MIDDLEWARE
-
 // static files middleware
-// app.use(express.static('public'))
-
+app.use(express.static('public'))
 //body parcer
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-
+//delete
 app.use(methodOverride('_method'));
-
+//login
+app.use(session({
+  secret: 'feedmeseymour',
+  resave: false,
+  saveUninitialized: false
+}))
 
 
 
@@ -32,12 +35,17 @@ const userController = require('./controllers/users.js')
 app.use('/users', userController);
 //sessions
 const sessionsController = require('./controllers/sessions.js')
-app.use('/sessions', sessionsController);
+app.use('/things/sessions', sessionsController);
 
 // Reroute to `things`
 app.get('/', (req, res) => {
   res.redirect('/things')
 })
+
+// GET INDEX
+app.get('/things', (req, res) => {
+  res.render('index.ejs', {currentUser: req.session.currentUser});
+});
 
 
 
@@ -46,6 +54,7 @@ app.listen(PORT, ()=>{
 
   console.log('this works');
 })
+
 
 mongoose.connect(mongoUri, { useNewUrlParser: true });
 mongoose.connection.on('open',()=>{

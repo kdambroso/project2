@@ -2,28 +2,31 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/form.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="/css/form.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <title></title>
   </head>
   <body>
 
     <div class="container">
-      <div class="sidebar"></div>
       <div class="update-thing">
-        <h1>Update Thing</h1>
+        <h1>Update Activity</h1>
           <form action="/things/<%=thing.id%>?_method=PUT" method="POST">
-            <label for="name">Thing Name</label>
-            <input type="text" id="name" name="name" value="<%=thing.name%>"><br/>
-            <label for="description">Description</label>
-            <textarea name="description" value="" id="description"></textarea><br/>
-            <label for="image">Enter Image URL</label>
-            <input type="text" id=image name="image" value="<%=thing.img%>"><br/>
-            <label for="weather">Weather</label>
-            <input type="text" id="weather" name="weather" value="<%=thing.weather%>"><br/>
+              <select id="weather" name="weather">
+                <option value="<%=thing.weather%>"><%=thing.weather%></option>
+                <option value="Sunny">Sunny</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Hot">Hot</option>
+                <option value="Cold">Cold</option>
+                <option value="Snowy">Snowy</option>
+              </select><br></br>
+            <input type="text" id="name" name="name" value="<%=thing.name%>"><br></br>
+            <textarea name="description" value="<%=thing.description%>" id="description"><%=thing.description%></textarea><br></br>
+            <input type="text" id=image name="image" value="<%=thing.img%>"><br></br>
+
+            <br/>
 
           <input type="submit">
-        </div>
       </div>
     </div>
   </body>
