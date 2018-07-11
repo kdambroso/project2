@@ -22,7 +22,7 @@
 
       <div class="header-nav">
         <ul>
-<% if(things.currentUser) { %>
+
           <li>
               <a href="/things/new">Add Content</a>
           </li>
@@ -31,10 +31,10 @@
                 <input type="submit" value="Logout"/>
             </form>
           </li>
-<% } else { %>
+
           <li><a href="/users/new">Register</a></li>
           <li><a href="/things/sessions/new">Log In</a></li>
-<% } %>
+
         </ul>
       </div>
     </div>
