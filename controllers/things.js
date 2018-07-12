@@ -98,7 +98,7 @@ router.get('/new', (req, res)=>{
   res.render('new.ejs');
 });
 router.get('/', (req, res)=>{
-    Thing.find({}).sort({weather: 1}).exec((error, allThings)=>{
+    Thing.find({}, (error, allThings)=>{
         res.render('index.ejs', {
             things: allThings,
             currentUser:req.session.currentUser
@@ -109,6 +109,7 @@ router.get('/:id', (req, res)=>{
     Thing.findById(req.params.id, (err, foundThing)=>{
         res.render('show.ejs', {
           thing: foundThing,
+          users: User.find({}),
           currentUser:req.session.currentUser
         });
     });
@@ -118,6 +119,9 @@ router.get('/:id', (req, res)=>{
 //Create Route
 router.post('/', (req, res)=>{
     req.body.createdBy= req.session.currentUser.username
+    User.findOneAndUpdate(
+      {_id: req.session.currentUser._id},
+      { $push: { messages: req.body.message } })
       Thing.create(req.body, (error, createThing)=>{
       res.redirect('things')
     })

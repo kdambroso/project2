@@ -18,18 +18,24 @@
          <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
            <input type="submit" class="like" value="Like"/>
          </form>
-            Weather: <%=thing.weather; %>
+
+
+
+
+            Weather: <%=thing.weather; %><br></br>
             created by: <%=thing.createdBy; %>
           </div>
         </div>
+
         <% if(currentUser) { %>
-<% if(thing.createdBy === currentUser.username){ %>
+
+          <% if(thing.createdBy === currentUser.username){ %>
         <div class="admin-actions">
             <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
               <input type="submit" id="delete" value="DELETE"/>
             </form>
             <a id="edit" href="/things/<%=thing.id%>/edit">EDIT</a>
-        <%}%>
+            <%}%>
         <%}%>
         </div>
     </body>
