@@ -95,7 +95,7 @@ router.get('/new', (req, res)=>{
   res.render('new.ejs');
 });
 router.get('/', (req, res)=>{
-    Thing.find({}, (error, allThings)=>{
+    Thing.find({}).sort({weather: 1}).exec((error, allThings)=>{
         res.render('index.ejs', {
             things: allThings,
             currentUser:req.session.currentUser
