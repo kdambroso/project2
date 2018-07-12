@@ -1,5 +1,5 @@
-#Weather To Do<pre>              </pre> Kdambroso
-#Program Version 1.0<pre>         </pre>7/12/2018
+#Weather To Do&npsp; &nbsp; &npsp; &nbsp; Kdambroso
+#Program Version 1.0&npsp; &nbsp; &npsp; &nbsp; 7/12/2018
 --------------------------------------------------
 
 Have you ever been bored on a rainy day, but can't think of anything to do?
