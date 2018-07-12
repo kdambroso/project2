@@ -93,12 +93,12 @@ router.put('/:id/likes', (req, res)=>{
 })
 
 
-//New oute
+//New Route
 router.get('/new', (req, res)=>{
   res.render('new.ejs');
 });
 router.get('/', (req, res)=>{
-    Thing.find({}, (error, allThings)=>{
+    Thing.find({}).sort({weather: 1}).exec((error, allThings)=>{
         res.render('index.ejs', {
             things: allThings,
             currentUser:req.session.currentUser
@@ -115,7 +115,7 @@ router.get('/:id', (req, res)=>{
 });
 
 
-//create route
+//Create Route
 router.post('/', (req, res)=>{
     req.body.createdBy= req.session.currentUser.username
       Thing.create(req.body, (error, createThing)=>{
