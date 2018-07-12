@@ -93,19 +93,19 @@ body {
   height: 237px;
 }
 .card h5 {
-  display: block;
+  
   padding-top: 1em;
   font-size: 1em;
   margin-left: 45%;
 }
 .card h4 {
-  display: block;
+
   padding-top: 1em;
   margin-left: 45%;
   font-size: 1.1em;
 }
 .thingImage img {
-  display: block;
+
   max-width: 122px;
   max-height: 126px;
   margin-left: 45%;
