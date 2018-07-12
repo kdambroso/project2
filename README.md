@@ -19,6 +19,7 @@ and Hosted on Heroku_
 Future goals:
 _Add comments section- in progress  
 Allow user to sort/find only the type of weather activity they want  
+Add check the weather and find activity based on current weather  
 Get a random recommendation if deciding on just one fun activity is too hard_
 
 Issues:

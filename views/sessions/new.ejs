@@ -4,15 +4,23 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="icon" href="/img/a-sun-cartoon-with-a-long-ray-md.png" type="image/x-icon"/>
+          <% include ../partials/head %>
         <title>Weather To Do- Login</title>
     </head>
     <body>
+        <% include ../partials/header %>
+
         <h1>Sign In</h1>
         <form action="/things/sessions" method="POST">
             <input type="text" name="username" placeholder="username"/>
             <input type="password" name="password" placeholder="password"/>
             <input type="submit" value="Log In" />
         </form>
+        </div>
+        <div class="main">
+         <!-- image -->
+         <img src="/img/blog_image_4106_7808_Summer_Boredom_Comics_201707171121.jpg" alt="bored cartoon"/>
+         <!-- about -->
+         <div class="main-abt">
     </body>
 </html>
