@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
   User.find({}, (err, foundUsers) => {
     if(req.session.currentUser){
-    res.render('messages/index.ejs', {
+    res.render('show.ejs', {
       users: foundUsers
         });
     } else {

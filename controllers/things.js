@@ -17,21 +17,21 @@ router.get('/seed', (req, res) => {
         name: 'Ride A Bike',
         description: 'Feel the wind in your hair',
         img: 'https://image.freepik.com/free-vector/kid-riding-a-bike_23-2147513580.jpg',
-        likes: 3,
+        likes: 0,
         createdBy: 'Admin'
       }, {
         weather: 'Rainy',
         name: 'Play a Board Game',
         description: 'Fun for the whole family',
         img: 'http://iloveboardgames.com/wp-content/uploads/2013/05/familyplayingcartoon.jpg',
-        likes: 5,
+        likes: 0,
         createdBy: 'Admin'
       }, {
         weather: 'Windy',
         name: 'Fly a Kite',
         description: 'capture the power of the wind',
         img: 'https://cdn5.vectorstock.com/i/1000x1000/20/44/cartoon-boy-playing-kite-vector-1542044.jpg',
-        likes: 3,
+        likes: 0,
         createdBy: 'Admin'
       }
     ],
@@ -61,9 +61,6 @@ router.delete('/:id', (req, res)=>{
     res.redirect('/things');
   })
 })
-
-
-
 
 //Edit Route
 router.get('/:id/edit',(req, res)=>{
@@ -119,9 +116,6 @@ router.get('/:id', (req, res)=>{
 //Create Route
 router.post('/', (req, res)=>{
     req.body.createdBy= req.session.currentUser.username
-    User.findOneAndUpdate(
-      {_id: req.session.currentUser._id},
-      { $push: { messages: req.body.message } })
       Thing.create(req.body, (error, createThing)=>{
       res.redirect('things')
     })

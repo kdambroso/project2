@@ -37,6 +37,7 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js')
 app.use('/things/sessions', sessionsController);
 
+
 // Reroute to `things`
 app.get('/', (req, res) => {
   res.redirect('/things')

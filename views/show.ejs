@@ -1,42 +1,42 @@
 <!<!DOCTYPE html>
 <html>
-    <head>
-         <% include ./partials/head %>
-    </head>
-    <body class="show">
-      <% include ./partials/header %>
-      <div class="header-nav">
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body class="show">
+  <% include ./partials/header %>
+    <div class="header-nav">
       <a href="/things">HOME</a>
+    </div>
+    </div>
+    <div class="container">
+      <div class="big">
+        <h1><%=thing.name; %> </h1>
+        <img src="<%=thing.img; %>" class="big-img" width="222" height="226"><br></br>
+        <h2><%=thing.description; %></h2>
+        <span class="heart"> <img src= "/img/71zVmQOKF0L._SX425_.png" height= "12px" width="12px"> <%=thing.likes; %></span></br>
+        <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
+          <input type="submit" class="like" value="Like" />
+        </form>
+        Weather:
+        <%=thing.weather; %><br></br>
+
+          created by:
+          <%=thing.createdBy; %>
       </div>
     </div>
-      <div class="container">
-        <div class="big">
-        <h1><%=thing.name; %> </h1>
-         <img src="<%=thing.img; %>" class="big-img" width="222" height="226"><br></br>
-         <h2><%=thing.description; %></h2>
-         <span class="heart"> <img src= "/img/71zVmQOKF0L._SX425_.png" height= "12px" width="12px"> <%=thing.likes; %></span></br>
-         <form action="/things/<%=thing.id%>/likes?_method=PUT" method="POST">
-           <input type="submit" class="like" value="Like"/>
-         </form>
-
-
-
-
-            Weather: <%=thing.weather; %><br></br>
-            created by: <%=thing.createdBy; %>
-          </div>
-        </div>
-
-        <% if(currentUser) { %>
-
-          <% if(thing.createdBy === currentUser.username){ %>
+    <% if(currentUser) { %>
+      <% if(thing.createdBy === currentUser.username){ %>
         <div class="admin-actions">
-            <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
-              <input type="submit" id="delete" value="DELETE"/>
-            </form>
-            <a id="edit" href="/things/<%=thing.id%>/edit">EDIT</a>
+          <form action="/things/<%=thing.id%>?_method=DELETE" method="POST">
+            <input type="submit" id="delete" value="DELETE" />
+          </form>
+          <a id="edit" href="/things/<%=thing.id%>/edit">EDIT</a>
+          <%}%>
             <%}%>
-        <%}%>
         </div>
-    </body>
+</body>
+
 </html>
