@@ -1,4 +1,8 @@
 /* ===== GENERAL ===== */
+:root {
+--black:#000;
+--licorice:#222;
+}
 body {
   background: #eee;
   font-family: 'Montserrat', helvetica;
@@ -86,7 +90,8 @@ body {
   flex-basis: 20%;
   text-align: center;
   padding: .3em;
-  margin: .5em;
+
+  margin: 4em .5em .5em .5em;
   box-shadow: 1px 1px 2px silver, -1px 1px 2px silver;
   width: 200px;
      height: 200px;
@@ -107,7 +112,6 @@ body {
   overflow: scroll;
 }
 .card h5 {
-
   padding-top: 1em;
   font-size: 1em;
   margin-left: 45%;
@@ -116,7 +120,6 @@ body {
   transform: rotate(0deg);
 }
 .card h4 {
-
   padding-top: 1em;
   margin-left: 45%;
   font-size: 1.1em;
@@ -125,7 +128,6 @@ body {
   transform: rotate(45deg);
 }
 .thingImage img {
-
   max-width: 122px;
   max-height: 126px;
   margin-left: 45%;
@@ -183,4 +185,19 @@ body {
   margin-auto;
   display:flex;
   justify-content: center;
+}
+
+/* ===== FOOTER * ===== */
+footer{
+
+  border-top: 1px solid #eee;
+}
+
+.bar{
+margin-top: 25px;
+  padding: 20px 0;
+  text-align: center;
+  background: #0C8CCD;
+  font-size: 0.75em;
+color: white;
 }

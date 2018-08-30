@@ -24,9 +24,6 @@ app.use(session({
 }))
 
 
-
-
-
 //CONTROLLERS
 const thingsController = require('./controllers/things.js');
 app.use('/things', thingsController);
@@ -47,8 +44,6 @@ app.get('/', (req, res) => {
 app.get('/things', (req, res) => {
   res.render('index.ejs', {currentUser: req.session.currentUser});
 });
-
-
 
 // CONNECTIONS
 app.listen(PORT, ()=>{
